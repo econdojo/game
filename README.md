@@ -1,2 +1,1 @@
-# social-net
-Game Theory
+# Game Theory
