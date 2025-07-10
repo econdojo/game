@@ -8,7 +8,7 @@ This course offers an introduction to game theory and its applications, building
 
 ## Class Information
 
-* **Syllabus:** [Fall 2025](/pdf/E4930syllabus.pdf)
+* **Syllabus:** [Fall 2025](/E4930syllabus.pdf)
 * **Discord:** [Econ Hub](https://discord.gg/SsrNPEeP2P)
 * **YouTube:** [Business School 101](https://www.youtube.com/@BusinessSchool101)
 
