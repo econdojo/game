@@ -14,4 +14,4 @@ This course offers an introduction to game theory and its applications, building
 
 ## Lecture Notes
 
-* [Getting Started with AI Agents](/pdf/Macroslides0.pdf)
+* [Getting Started with AI Agents](https://github.com/econdojo/blog/blob/main/doc/AIagent.pdf)
