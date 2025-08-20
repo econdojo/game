@@ -14,5 +14,5 @@ This course offers an introduction to game theory and its applications, building
 
 ## Lecture Notes
 
-* [Getting Started with AI Agents](https://github.com/econdojo/blog/blob/main/doc/AIagent.pdf)
+* [Getting Started with AI Agents](https://github.com/econdojo/blog/blob/main/doc/agent.pdf)
 * [Lecture 1: Basic Strategic Form Games](/pdf/lec1.pdf)
