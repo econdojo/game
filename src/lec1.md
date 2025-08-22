@@ -2,6 +2,7 @@
 marp: true
 math: mathjax
 theme: default
+size: 4:3
 paginate: true
 backgroundColor: '#f4f6fa'
 backgroundImage: url('https://marp.app/assets/hero-background.svg')
@@ -13,30 +14,64 @@ style: |
   }
   section {
     color: #222;
+    font-size: 24px;
+    padding: 50px;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    color: #003DA5;
+    font-size: 38px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    color: #003DA5;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  h3, h4, h5, h6 {
     color: #003DA5;
   }
   .slide-footer {
     color: #888;
   }
-  .payoff-matrix {
-    margin: 20px auto;
-    border-collapse: collapse;
-  }
-  .payoff-matrix th, .payoff-matrix td {
-    border: 2px solid #003DA5;
-    padding: 10px 15px;
-    text-align: center;
-  }
-  .payoff-matrix th {
-    background-color: #003DA5;
-    color: white;
-  }
   .highlight {
     background-color: #ffeb3b;
     padding: 2px 4px;
     border-radius: 3px;
+  }
+  .identity-box {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 12px 0;
+    text-align: center;
+    border: 2px solid #ddd;
+    font-size: 20px;
+  }
+  table {
+    margin: 15px auto;
+    border-collapse: collapse;
+    font-size: 19px;
+  }
+  table th, table td {
+    border: 2px solid #003DA5;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  table th {
+    background-color: #003DA5;
+    color: white;
+  }
+  ul, ol {
+    margin: 10px 0;
+    padding-left: 25px;
+  }
+  li {
+    margin: 6px 0;
+    line-height: 1.5;
+  }
+  p {
+    margin: 10px 0;
+    line-height: 1.5;
   }
 ---
 
