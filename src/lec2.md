@@ -90,11 +90,9 @@ style: |
 1. [From Simultaneous to Sequential Games](#from-simultaneous-to-sequential-games)
 2. [Subgame Perfect Equilibrium](#subgame-perfect-equilibrium)
 3. [Backward Induction](#backward-induction)
-4. [Multiple Subgame Perfect Equilibria](#multiple-subgame-perfect-equilibria)
-5. [Making Threats Credible](#making-threats-credible)
-6. [Commitment Problems](#commitment-problems)
-7. [Backward Induction with N Players](#backward-induction-with-n-players)
-8. [Forward Induction](#forward-induction)
+4. [Commitment](#making-threats-credible)
+5. [Backward Induction with N Players](#backward-induction-with-n-players)
+6. [Forward Induction](#forward-induction)
 
 ---
 
@@ -301,67 +299,100 @@ Player 1: Accept ──── (0, 0)
 
 ## Example: Ultimatum Game
 
-**Setup**: Player 1 has a good worth 2 and must bargain with Player 2 over division
+Player 1 has a good worth 2 and must bargain with Player 2 over division
 - **Split**: Offer equal division (1, 1)  
 - **Take**: Attempt to take everything (2, 0)
 - Player 2 can **Accept** or **Reject** any proposal
 - Rejection leads to (0, 0) for both
 
 ```
-        Player 1
-       /        \
-     Split      Take
-     /            \
-Player 2       Player 2
-/      \       /      \
-Accept Reject Accept Reject
-/       \     /       \
-(1,1)   (0,0) (2,0)   (0,0)
+Player 1: Split ── Player 2: Accept ──── (1, 1)
+    │                   │
+    │                   └── Reject ──── (0, 0)
+    │
+    └── Take ── Player 2: Accept ──── (2, 0)
+                     │
+                     └── Reject ──── (0, 0)
 ```
 
 ---
 
 ## Multiple SPE in Ultimatum Game
 
-**After Split**: Player 2 prefers Accept (payoff 1) over Reject (payoff 0)
+After **Split**: Player 2 prefers Accept (payoff 1) over Reject (payoff 0)
 
-**After Take**: Player 2 is **indifferent** between Accept (payoff 0) and Reject (payoff 0)
+After **Take**: Player 2 is indifferent between Accept (payoff 0) and Reject (payoff 0)
 
-**Multiple Equilibria Arise** from Player 2's indifference:
+Multiple equilibria arise from Player 2's indifference:
 
 1. **Player 2 always Accepts**: Player 1 takes (payoff 2 > 1), so SPE is ⟨Take, (Accept, Accept)⟩
 2. **Player 2 always Rejects**: Player 1 splits (payoff 1 > 0), so SPE is ⟨Split, (Accept, Reject)⟩  
 3. **Player 2 mixes**: Any probability p of accepting after "Take"
    - If p > 1/2: Player 1 takes
    - If p < 1/2: Player 1 splits
-   - If p = 1/2: Player 1 indifferent, can mix
+   - If p = 1/2: Player 1 indifferent, can mix with any probability q
 
 ---
 
-## Making Threats Credible: Burning Bridges
+## Example: Weighted Matching Pennies
 
-**The Classic Story**: Two armies fight over an island. Each has a bridge for access.
+```
+                    Player 1
+                   /        \
+                Stay        Go
+                /            \
+           (-1/3, 4)      Player 2
+                         /        \
+                      Left        Right
+                      /              \
+                Player 1 - - - - - Player 1
+                /      \            /    \
+               Up     Down        Up     Down
+              /         \         /        \
+           (3,-3)     (-1,1)   (-2,2)    (0,0)
+```
 
-**Strategic Problem**: 
+**Why backward induction fails?** It requires every decision node to have unique history, but Player 1's last decision (Up/Down) violates this requirement.
+
+**Valid subgame**: Only the simultaneous portion after "Go" forms a proper subgame since Player 2's choice has unique history.
+
+---
+
+## Multiple SPE in Weighted Matching Pennies
+
+**Solution method**: 
+1. Solve the simultaneous subgame first: Player 1 plays Up with prob 1/6; Player 2 plays Left with prob 1/3
+2. Replace subgame with expected payoffs (-1/3, 1/3)
+3. Player 1 compares Stay(-1/3) vs Go(-1/3) → Indifferent!
+
+**Multiple SPE**: Player 1 can mix with any probability between Stay and Go
+
+**Key insight**: Simultaneous moves within extensive form games can create multiple SPE even when all payoffs are unique
+
+---
+
+## Making Threats Credible
+
+Two armies fight over an island. Each has a bridge for access:
+
 - Island is valuable but not worth fighting for
 - Each army prefers to concede rather than fight
 - First army occupies island, second decides whether to invade
 
-**Game Tree**:
 ```
-Army 1: Burn Bridge?
-/              \
-Burn            Don't Burn
-/                  \
-Army 2           Army 2 invades
-/    \              /      \
-Don't  Invade    Fight    Retreat
-/      \         /          \
-(1,0)  (-1,-1)  Army 1    (0,1)
-              /      \
-           Fight   Retreat
-           /          \
-         (-1,-1)     (0,1)
+       Army 1: Burn Bridge?
+        /              \
+     Burn            Don't Burn
+      /                  \
+   Army 2               Army 2
+    /    \              /      \
+Invade  Concede      Invade   Concede
+  /        \          /          \
+(-1,-1)   (1,0)    Army 1      (1,0)
+                  /      \
+               Fight   Retreat
+                /          \
+             (-1,-1)     (0,1)
 ```
 
 ---
@@ -370,44 +401,17 @@ Don't  Invade    Fight    Retreat
 
 **Backward Induction**:
 
-**Step 1** - If bridge not burned and Army 2 invades:
-- Army 1 chooses Fight(-1) vs Retreat(0) → Choose Retreat
+**Step 1** - If bridge not burned and Army 2 invades: Army 1 chooses Fight (-1) vs Retreat (0) → Choose Retreat
 
-**Step 2** - Army 2's decision if bridge not burned:
-- Don't Invade(0) vs Invade(1, since Army 1 retreats) → Choose Invade
+**Step 2** - Army 2's decision if bridge not burned: Concede (0) vs Invade (1, since Army 1 retreats) → Choose Invade
 
-**Step 3** - Army 2's decision if bridge burned:  
-- Don't Invade(0) vs Invade(-1, since Army 1 must fight) → Choose Don't Invade
+**Step 3** - Army 2's decision if bridge burned: Concede (0) vs Invade (-1, since Army 1 must fight) → Choose Concede
 
-**Step 4** - Army 1's initial decision:
-- Burn(1) vs Don't Burn(0) → Choose Burn
+**Step 4** - Army 1's initial decision: Burn (1) vs Not Burn (0) → Choose Burn
 
-**SPE**: ⟨(Burn, Retreat), (Don't Invade, Invade)⟩
+**SPE**: ⟨(Burn, Concede), (Not Burn, Retreat, Invade)⟩
 
-**Key Insight**: Burning bridges makes the threat to fight **credible**!
-
----
-
-## Tying Hands
-
-**Story**: Boss wants to stop employee theft but prefers keeping employee over firing
-
-**Without Warning**:
-```
-Employee steals → Boss: Fire(-1) vs Ignore(0) → Boss ignores → Employee steals
-```
-
-**With Warning** (Boss values reputation):
-```  
-Employee steals after warning → Boss: Fire(-1) vs Ignore(-2) → Boss fires → Employee doesn't steal
-```
-
-**Analysis**:
-- Warning changes Boss's payoffs (reputation cost for not following through)
-- Makes threat to fire **credible**
-- Employee responds by not stealing
-
-**SPE**: ⟨(Warning, Ignore, Follow Through), (Steal, Don't Steal)⟩
+**Tying Hands**: Deliberately limiting your future options to make a threat or commitment **credible**!
 
 ---
 
@@ -533,39 +537,3 @@ Employee steals after warning → Boss: Fire(-1) vs Ignore(-2) → Boss fires �
 4. Therefore, Player 1 burns money and both go to Fight
 
 **Result**: Threat of burning money (even if not used) can coordinate on Player 1's preferred equilibrium
-
----
-
-## Takeaway Points
-
-1. **Subgame Perfect Equilibrium** requires credible threats - eliminates Nash equilibria based on non-credible threats
-
-2. **Backward Induction** systematically finds SPE by analyzing optimal play from the end of the game backwards
-
-3. **Multiple SPE** can exist when players are indifferent between actions at some decision nodes
-
-4. **Commitment Strategies** (burning bridges, tying hands) can improve payoffs by making threats credible
-
-5. **Sequential games** often have unique predictions even when the corresponding simultaneous game has multiple equilibria
-
-6. **Forward induction** uses rationality assumptions about past play to make inferences about opponents' strategies
-
-7. **Complete strategies** must specify actions at all decision nodes, not just those reached in equilibrium
-
----
-
-## Applications and Extensions
-
-**Real-World Applications**:
-- **Business Strategy**: Entry deterrence, capacity investment, price wars
-- **Military Strategy**: Nuclear deterrence, alliance formation
-- **Political Science**: Legislative bargaining, coalition formation  
-- **Economics**: Auction design, contract theory, mechanism design
-
-**Advanced Topics** (beyond this course):
-- Perfect Bayesian Equilibrium (incomplete information)
-- Repeated games and reputation
-- Bargaining theory
-- Evolutionary game theory
-
-**Next Lecture**: Advanced Strategic Form Games - dominance, rationalizability, and equilibrium refinements
