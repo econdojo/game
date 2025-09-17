@@ -90,9 +90,8 @@ style: |
 1. [From Simultaneous to Sequential Games](#from-simultaneous-to-sequential-games)
 2. [Subgame Perfect Equilibrium](#subgame-perfect-equilibrium)
 3. [Backward Induction](#backward-induction)
-4. [Commitment](#making-threats-credible)
-5. [Backward Induction with N Players](#backward-induction-with-n-players)
-6. [Forward Induction](#forward-induction)
+4. [Commitment Problems](#commitment-problems)
+5. [Forward Induction](#forward-induction)
 
 ---
 
@@ -409,7 +408,7 @@ Invade  Concede      Invade   Concede
 
 **Step 4** - Army 1's initial decision: Burn (1) vs Not Burn (0) → Choose Burn
 
-**SPE**: ⟨(Burn, Concede), (Not Burn, Retreat, Invade)⟩
+**SPE**: ⟨(Burn, Retreat), (Concede, Invade)⟩
 
 **Tying Hands**: Deliberately limiting your future options to make a threat or commitment **credible**!
 
@@ -417,123 +416,90 @@ Invade  Concede      Invade   Concede
 
 ## Commitment Problems
 
-**Definition**: Situations where the ability to commit to future actions provides strategic advantage
+Situations where the inability to commit to future actions leads to suboptimal outcomes. Consider a graduate student pulled over in Texas. Officer requests vehicle search but cannot credibly commit to "quick" search.
 
-**Examples**:
-1. **Burning Bridges**: Remove option to retreat, making fight threat credible
-2. **Tying Hands**: Make deviation from threat extremely costly
-3. **Reputation Building**: Invest in credibility of future threats
+```
+                    Student
+                   /        \
+              Allow Search   Request K-9
+                 /              \
+             Officer           (2, 1)
+            /        \
+       Quick       Extensive
+        /              \
+     (3, 2)          (1, 3)
+```
 
-**Paradox**: Reducing your own options can **improve** your payoff
+**SPE**: ⟨Request K-9, Extensive⟩ - Both prefer quick search (3,2) but can't achieve it
 
-**Applications**:
-- Military strategy and deterrence
-- Business competition and market entry
-- Labor negotiations and strikes
-- International relations and sanctions
-
----
-
-## The Pirate Game (5 Pirates, 10 Gold Coins)
-
-**Rules**: 
-- Hierarchy: Nash > Pirate 2 > Pirate 3 > Pirate 4 > Pirate 5
-- Senior-most pirate proposes allocation
-- Majority vote required (including proposer's vote)  
-- If proposal fails, proposer walks the plank, next pirate proposes
-- All pirates are rational, greedy, but prefer life over death
-
-**Question**: What allocation will Nash (most senior) propose?
+**Key insight**: Words without credible commitment mechanisms are worthless
 
 ---
 
-## Pirate Game: Backward Induction
+## Example: Civil War
 
-**If only Pirate 4 and 5 remain**: Pirate 4 proposes (10, 0) and wins with his own vote
+Dictator faces rebel revolution. Must choose: Fight (20% win, 80% lose) or Surrender immediately. If rebels win, they choose Forgive vs Execute dictator.
 
-**If Pirates 3, 4, 5 remain**: 
-- Pirate 3 needs 2 votes total (including his own)
-- Pirate 4 rejects any offer (can get 10 coins if Pirate 3 dies)
-- Pirate 5 gets 0 if Pirate 3 dies, so accepts any positive offer
-- **Pirate 3's optimal proposal**: (9, 0, 1)
+```
+                Dictator
+               /        \
+            Fight     Surrender
+             /            \
+         Nature          Rebels
+        /      \        /      \
+     Win      Lose   Forgive  Execute
+    (7,-10)    |      (-5,8)  (-10,10)
+            Rebels
+           /      \
+       Forgive   Execute
+       (-8,5)   (-13,7)
+```
 
-**If Pirates 2, 3, 4, 5 remain**:
-- Pirate 2 needs 2 votes total  
-- Pirate 3 gets 9 if Pirate 2 dies (expensive to buy)
-- Pirate 4 gets 0 if Pirate 2 dies (cheap to buy - needs only 1 coin)
-- **Pirate 2's optimal proposal**: (9, 0, 1, 0)
+**Expected payoffs** when Dictator Fights: Dictator gets (.2)(7) + (.8)(-13) = -9, Rebels get (.2)(-10) + (.8)(7) = 3.6
 
----
-
-## Pirate Game Solution
-
-**Nash's Decision** (all 5 pirates):
-- Needs 3 votes total (including his own)
-- Pirate 2 gets 9 if Nash dies (too expensive)
-- Pirates 3 and 5 get 0 if Nash dies (each needs only 1 coin)
-- Pirate 4 gets 1 if Nash dies (needs 2 coins)
-
-**Nash's Optimal Strategy**: Buy Pirates 3 and 5 with 1 coin each
-
-**Final Allocation**: Nash(8), Pirate 2(0), Pirate 3(1), Pirate 4(0), Pirate 5(1)
-
-**Votes**: Nash ✓, Pirate 2 ✗, Pirate 3 ✓, Pirate 4 ✗, Pirate 5 ✓
-
-**Key Insight**: Even the most senior player cannot extract everything - must share just enough to create winning coalition
+**SPE**: ⟨Fight, (Execute, Excute)⟩ - Rebels cannot credibly commit to spare dictator if he surrenders, so civil wars rarely end in negotiated settlements
 
 ---
 
-## Nim: Game of Perfect Information
+## Example: Centipede Game
 
-**Setup**: 21 chips, players alternate taking 1 or 2 chips, last player to take chips wins
+Two players alternate adding $2 to a growing pot or taking $2 plus splitting the pot. Player 1 starts, and the game can continue for up to 100 rounds.
 
-**Backward Induction Logic**:
-- **1 chip left**: Player must take it and wins
-- **2 chips left**: Player takes both and wins  
-- **3 chips left**: Player loses (opponent will win regardless)
-- **4 chips left**: Player takes 1, leaving 3 for opponent → Player wins
-- **5 chips left**: Player takes 2, leaving 3 for opponent → Player wins
-- **6 chips left**: Player loses (opponent can force win)
+```
+        Continue       Continue       Continue       Continue                Continue
+    1 ———————————— 2 ———————————— 1 ———————————— 2 ———————————— ... ———— 2 ———————————— 1
+    |              |              |              |                       |              |
+   End            End            End            End                     End            End
+    |              |              |              |                       |              |
+  (2,0)          (1,3)          (4,2)          (3,5)                  (99,101)      (100,100)
+```
 
-**Pattern**: Player loses with 3, 6, 9, 12, 15, 18, 21 chips remaining
+**Backward Induction**: Player 2 takes in final round ($101 > $100) → Player 1 takes in round 99 → ... → Both take immediately with (2,0)
 
-**21-chip game**: Player 1 starts with 21 chips and is in a losing position!
+**SPE**: Both players take at every opportunity → SPE gives worst possible outcome!
 
-**Optimal strategy**: Leave opponent with multiple of 3 chips
+**Paradox**: Laboratory evidence shows players cooperate for many rounds, explained by irrationality, altruism, or strategic "feigning irrationality"
 
 ---
 
 ## Forward Induction
 
-**Definition**: Forward induction uses the assumption that all previous play was **rational** to make inferences about opponents' private information or strategies
+Forward induction uses the assumption that all **past** play was rational to make inferences about opponents' private information or strategies
 
-**Key Difference from Backward Induction**:
-- **Backward Induction**: Assumes optimal play in the future
-- **Forward Induction**: Assumes rational play in the past
+```
+                    Player 1 ——————— (2.5, 2.5)
+                  /         \
+               Stag         Hare
+                /             \      
+           Player 2 - - - - Player 2  (information set)
+           /      \         /      \
+        Stag     Hare    Stag     Hare
+          |        |       |        |
+        (3,3)    (0,2)   (2,0)    (1,1)
+```
 
-**Application**: When players observe actions that seem suboptimal, forward induction helps explain why those actions might actually be rational
+Forward induction selects **unique** equilibrium ⟨Stag, Stag⟩:
 
-**Requirement**: Extremely sophisticated thinking and strong rationality assumptions
-
----
-
-## Forward Induction Example: Battle of Sexes with Burning Money
-
-**Modified Battle of the Sexes**: Player 1 can burn money before choosing
-
-**Standard Battle of the Sexes**:
-<table>
-<tr><th></th><th>Ballet</th><th>Fight</th></tr>
-<tr><th>Ballet</th><td>1, 2</td><td>0, 0</td></tr>
-<tr><th>Fight</th><td>0, 0</td><td>2, 1</td></tr>
-</table>
-
-**With Money Burning**: Player 1 can burn $1 before the game, changing his payoffs to (0,1) and (1,0)
-
-**Forward Induction Logic**:
-1. If Player 1 burns money, he must be planning to go to Fight (only way to get positive payoff)
-2. Knowing this, Player 2 should also choose Fight
-3. This gives Player 1 payoff of 1 (better than mixing in original game)
-4. Therefore, Player 1 burns money and both go to Fight
-
-**Result**: Threat of burning money (even if not used) can coordinate on Player 1's preferred equilibrium
+1. Hare is strictly dominated by Pub (2.5 > 2) → Player 1 never chooses Hare
+2. Player 2 infers Player 1 chose Stag → Player 2 chooses Stag (payoff 3 > 2)
+3. Player 1 anticipates this → chooses Stag over Pub (payoff 3 > 2.5)
