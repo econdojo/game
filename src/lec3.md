@@ -157,10 +157,10 @@ Payoff matrix with variable constraints: T > R > P > S and t > r > p > s
 | **Down (Defect)** | T, s | P, p |
 
 **Variable meanings:**
-- **T** = Temptation (defect when opponent cooperates)
-- **R** = Reward (mutual cooperation)  
-- **P** = Punishment (mutual defection)
-- **S** = Sucker (cooperate when opponent defects)
+- **T/t** = Temptation (defect when opponent cooperates)
+- **R/r** = Reward (mutual cooperation)  
+- **P/p** = Punishment (mutual defection)
+- **S/s** = Sucker (cooperate when opponent defects)
 
 **Result:** Unique pure strategy Nash equilibrium at (Down, Right) = (Defect, Defect)
 
@@ -212,49 +212,28 @@ Kicker has perfect accuracy right, accuracy $x$ (where $0 < x < 1$) aiming left
 
 **Comparative static:** $\frac{d}{dx}\left(\frac{1}{1+x}\right) = -\frac{1}{(1+x)^2} < 0$ → As kicker's left accuracy improves, he kicks left **less frequently**!
 
-**Strategic interaction:** Goalie anticipates kicker's improved left accuracy and guards left more → kicker exploits the now less-defended right side → improved accuracy paradoxically shifts play toward the strong side.
+**Strategic interaction:** Goalie anticipates kicker's improved left accuracy and guards left more → kicker exploits the now less-defended right side → improved accuracy paradoxically shifts play toward the strong side
 
 ---
 
-## The Volunteer's Dilemma
+## Example: Volunteer's Dilemma
 
-Two neighbors hear woman being attacked, must decide whether to call police
-
-**Payoffs**:
-- Woman's life worth 1, death worth 0
-- Calling costs $c$ where $0 < c < 1$
-- If anyone calls, woman lives; if no one calls, she dies
+Two neighbors hear woman being attacked, must decide whether to call police. Woman's life worth 1, death worth 0; calling costs $c$ where $0 < c < 1$
 
 | | Call | Ignore |
 |---|---|---|
 | **Call** | 1-c, 1-c | 1-c, 1 |
 | **Ignore** | 1, 1-c | 0, 0 |
 
-**Mixed Strategy Nash Equilibrium:**
-- Each player ignores with probability $c$
-- Each player calls with probability $1-c$
+**Mixed Strategy Nash Equilibrium:** Each player calls with probability $1-c$
+
+**Comparative static:** Probability no one calls = $c^2$ → $\frac{d}{dc}(c^2) = 2c > 0$
+
+**Bystander effect:** More potential helpers → less help! Each assumes someone else will act, creating coordination failure (e.g. public goods provision) → need clear assignment of responsibility
 
 ---
 
-## Volunteer's Dilemma: Tragic Implications
-
-**Probability no one calls**: $c^2$
-
-**Comparative static analysis:**
-$$\frac{d}{dc}(c^2) = 2c > 0$$
-
-**Result**: As selfishness ($c$) increases, probability of woman's death increases
-
-**Bystander effect**: Multiple potential helpers can lead to **less** help
-- Each assumes someone else will act
-- Coordination failure despite shared preferences
-- Real-world relevance: Kitty Genovese case, public goods provision
-
-**Policy implication**: Clear assignment of responsibility reduces coordination failure
-
----
-
-## Hawk-Dove Game: War and Peace
+## Example: Hawk-Dove Game
 
 **Crisis bargaining model**: Two states decide whether to be aggressive (Hawk) or peaceful (Dove)
 
