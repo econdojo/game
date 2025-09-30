@@ -7,7 +7,7 @@ paginate: true
 backgroundColor: '#f4f6fa'
 backgroundImage: url('https://marp.app/assets/hero-background.svg')
 header: 'Lecture 3: Advanced Strategic Form Games'
-footer: 'Fei Tan | Made on Earth by humans.'
+footer: 'Fei Tan | Together We Advance.'
 style: |
   .logo {
     vertical-align: -0.2em;
@@ -88,9 +88,9 @@ style: |
 ## The Road Ahead
 
 1. [Probability Distributions](#probability-distributions)
-2. [Mixed Strategies Nash Equilibria](#generalized-battle-of-sexes)
+2. [Mixed Strategy Nash Equilibrium](#generalized-battle-of-sexes)
 3. [Comparative Statics](#comparative-statics)
-4. [Rock-Paper-Scissors Analysis](#rock-paper-scissors-analysis)
+4. [Rock-Paper-Scissors Game](#rock-paper-scissors-game)
 5. [Indifference Principle](#indifference-principle)
 6. [Generalized Rock-Paper-Scissors](#generalized-rock-paper-scissors)
 7. [Mixed Strategies as Population Parameters](#mixed-strategies-as-population-parameters)
@@ -128,7 +128,7 @@ A **probability distribution** is a set of events and the probability each event
 
 ---
 
-### Generalized Battle of Sexes
+### Example: Generalized Battle of Sexes
 
 Payoff matrix with variables constraints: A > B > C and a > b > c
 
@@ -147,7 +147,7 @@ Payoff matrix with variables constraints: A > B > C and a > b > c
 
 ---
 
-## Generalized Prisoner's Dilemma
+## Example: Generalized Prisoner's Dilemma
 
 Payoff matrix with variable constraints: T > R > P > S and t > r > p > s
 
@@ -180,6 +180,10 @@ Setting Player 2 indifferent → $\sigma_{up}(r + p - s - t) = p - s$
 3. **Case 3:** $r + p - s - t > 0$ → $\sigma_{up} > 1$ → Invalid probability
 
 **Key insight:** Strict dominance eliminates all mixed strategy possibilities
+
+---
+
+## Section 3.5 TBA
 
 ---
 
@@ -235,7 +239,7 @@ Two neighbors hear woman being attacked, must decide whether to call police. Wom
 
 ## Example: Hawk-Dove Game
 
-**Crisis bargaining model**: Two states decide whether to be aggressive (Hawk) or peaceful (Dove)
+Two states decide whether to be aggressive (Hawk) or peaceful (Dove); $v$ is the prize value and $c$ is the cost of fighting.
 
 | | Hawk | Dove |
 |---|---|---|
@@ -244,62 +248,15 @@ Two neighbors hear woman being attacked, must decide whether to call police. Wom
 
 **Equilibrium depends on parameters:**
 - If $\frac{v}{2} > c$: Both play Hawk (war certain)
-- If $\frac{v}{2} < c$: Mixed strategy with $P(\text{Hawk}) = \frac{v}{2c}$
+- If $\frac{v}{2} < c$: Pure strategy (Hawk, Dove) and (Dove, Hawk); Mixed strategy with $P(\text{Hawk}) = \frac{v}{2c}$
 
-**Probability of war in mixed equilibrium**: $\left(\frac{v}{2c}\right)^2 = \frac{v^2}{4c^2}$
-
-**Comparative static**: $\frac{d}{dc}\left(\frac{v^2}{4c^2}\right) = -\frac{v^2}{2c^3} < 0$
+**Comparative static**: Probability of war = $\frac{v^2}{4c^2}$ → $\frac{d}{dc}\left(\frac{v^2}{4c^2}\right) = -\frac{v^2}{2c^3} < 0$
 
 **Paradox of peace**: Higher war costs → lower probability of war!
 
 ---
 
-## Baseball: Curveballs with Runner on Third
-
-**Setup**: Pitcher chooses fastball/curveball, batter guesses. Curveball risk: ball might get past catcher
-
-| | Guess Fastball | Guess Curveball |
-|---|---|---|
-| **Throw Fastball** | -1, 1 | 0, 0 |
-| **Throw Curveball** | -x, x | -1-x, 1+x |
-
-**Mixed Strategy Nash Equilibrium** (when $0 < x < 1$):
-- Batter guesses fastball with probability $\frac{1+x}{2}$
-- Pitcher throws fastball with probability $\frac{1}{2}$
-
-**Comparative statics:**
-- Batter: $\frac{d}{dx}\left(\frac{1+x}{2}\right) = \frac{1}{2} > 0$ (more fastball guesses as risk increases)
-- Pitcher: Strategy **independent** of $x$! Always throws 50-50 mix
-
-**Insight**: Pitcher's strategy unaffected by wildness level (on relevant interval)
-
----
-
-## When Comparative Statics Don't Matter
-
-**Take or Share game**: Some games have **trivial** comparative statics
-
-| | Take | Share |
-|---|---|---|
-| **Take** | $\frac{v}{2}, \frac{v}{2}$ | $v, 0$ |
-| **Share** | $0, v$ | $\frac{v}{2}, \frac{v}{2}$ |
-
-**Partially Mixed Strategy Nash Equilibria**: $\langle\text{Take}, \sigma_{\text{take}}\rangle$ where $0 < \sigma_{\text{take}} < 1$
-
-**Comparative static with respect to $v$**: 
-$$\frac{d\sigma_{\text{take}}}{dv} = 0$$
-
-**Result**: Mixing probabilities completely **independent** of payoff magnitude
-
-**Lesson**: Not all parameter changes affect strategic behavior!
-
----
-
-
-
----
-
-## Classic Rock-Paper-Scissors
+## Rock-Paper-Scissors Game
 
 <table class="payoff-matrix">
 <tr>
@@ -329,79 +286,14 @@ $$\frac{d\sigma_{\text{take}}}{dv} = 0$$
 </table>
 
 **Observations**:
-- No pure strategy Nash equilibria (no cell with two positive payoffs)
-- Each strategy beats one other and loses to one other
-- Symmetric and zero-sum structure
+- Cyclical dominance: No pure strategy Nash equilibria
+- Any two-strategy support is exploitable: Omitted third strategy beats both members of the support
+- Exploitation gives the opponent a guaranteed positive payoff and forces the mixer to a negative expected payoff—impossible in symmetric zero-sum equilibrium
+- Conclusion: Both players must mix over all three strategies with probability $\tfrac{1}{3}$ for each strategy
 
 ---
 
-## No Pure Strategy Equilibria
-
-**Checking for pure strategy Nash equilibria**:
-
-Looking for cells where both players are playing best responses:
-- (Rock, Rock): Player 1 gets 0, but could get 1 by switching to Paper
-- (Paper, Paper): Player 1 gets 0, but could get 1 by switching to Scissors  
-- (Scissors, Scissors): Player 1 gets 0, but could get 1 by switching to Rock
-- All off-diagonal cells: The losing player wants to deviate
-
-**Conclusion**: No pure strategy Nash equilibria exist
-
-**Next step**: Look for mixed strategy equilibria
-
----
-
-## Why Not Mix Between Only Two Strategies?
-
-Consider Player 1 mixing between Rock and Paper only:
-
-**Player 2's analysis**: 
-- If Player 2 plays Scissors, they beat both Rock (-1 to Player 1) and Paper (1 to Player 2)
-- Scissors guarantees Player 2 a positive payoff regardless of Player 1's mixture
-
-**Player 1's expected payoff**: Must be negative since Player 2 can guarantee positive payoff
-
-**Problem**: This violates the zero-sum symmetry rule - Player 1 cannot have negative expected payoff in equilibrium
-
-**Same logic applies** to all other two-strategy mixtures: Rock-Scissors, Paper-Scissors
-
----
-
-## The Mixed Strategy Nash Equilibrium
-
-Since no pure strategy or two-strategy mixed equilibria exist, both players must mix among **all three strategies**.
-
-**Intuition**: Each player must make the opponent indifferent among all three pure strategies
-
-Let Player 2 use probabilities: $(\sigma_{\text{rock}}, \sigma_{\text{paper}}, \sigma_{\text{scissors}})$
-
-**Player 1's expected utilities**:
-- Playing Rock: $0 \cdot \sigma_{\text{rock}} + (-1) \cdot \sigma_{\text{paper}} + 1 \cdot \sigma_{\text{scissors}}$
-- Playing Paper: $1 \cdot \sigma_{\text{rock}} + 0 \cdot \sigma_{\text{paper}} + (-1) \cdot \sigma_{\text{scissors}}$
-- Playing Scissors: $(-1) \cdot \sigma_{\text{rock}} + 1 \cdot \sigma_{\text{paper}} + 0 \cdot \sigma_{\text{scissors}}$
-
----
-
-## Solving for the Mixed Strategy Equilibrium
-
-**Indifference conditions**: Player 1 must be indifferent among all strategies
-
-$EU_{\text{Rock}} = EU_{\text{Paper}} = EU_{\text{Scissors}}$
-
-$-\sigma_{\text{paper}} + \sigma_{\text{scissors}} = \sigma_{\text{rock}} - \sigma_{\text{scissors}} = -\sigma_{\text{rock}} + \sigma_{\text{paper}}$
-
-**Plus the constraint**: $\sigma_{\text{rock}} + \sigma_{\text{paper}} + \sigma_{\text{scissors}} = 1$
-
-**Solution**:
-From the first equality: $\sigma_{\text{rock}} = \sigma_{\text{paper}} = \sigma_{\text{scissors}}$
-
-Since they sum to 1: $\sigma_{\text{rock}} = \sigma_{\text{paper}} = \sigma_{\text{scissors}} = \frac{1}{3}$
-
-**Mixed Strategy Nash Equilibrium**: Both players play each strategy with probability $\frac{1}{3}$
-
----
-
-## Generalized Rock-Paper-Scissors
+## Generalized Rock-Paper-Scissors Game
 
 <table class="payoff-matrix">
 <tr>
@@ -430,104 +322,28 @@ Since they sum to 1: $\sigma_{\text{rock}} = \sigma_{\text{paper}} = \sigma_{\te
 </tr>
 </table>
 
-**Constraints**: $x > 0$, $y > 0$, $z > 0$ (maintains the cyclical dominance structure)
+**Player 1's expected utilities** (Player 2 uses $\sigma_{\text{rock}}+\sigma_{\text{paper}}+\sigma_{\text{scissors}}=1$):
 
-**Interpretation**: Different strategies have different "lethality" against each other
-- Large $x$: Paper devastates Rock
-- Large $y$: Rock crushes Scissors  
-- Large $z$: Scissors obliterate Paper
-
----
-
-## Solving the Generalized Game
-
-**Player 1's expected utilities** (assuming Player 2 uses $\sigma_{\text{rock}}, \sigma_{\text{paper}}, \sigma_{\text{scissors}}$):
-
-$EU_{\text{Rock}} = -x\sigma_{\text{paper}} + y\sigma_{\text{scissors}}$
-
-$EU_{\text{Paper}} = x\sigma_{\text{rock}} - z\sigma_{\text{scissors}}$
-
-$EU_{\text{Scissors}} = -y\sigma_{\text{rock}} + z\sigma_{\text{paper}}$
-
-**Setting equal for indifference**:
-$EU_{\text{Rock}} = EU_{\text{Paper}} = EU_{\text{Scissors}}$
-
-**Using constraint** $\sigma_{\text{scissors}} = 1 - \sigma_{\text{rock}} - \sigma_{\text{paper}}$
-
----
-
-## Solution to Generalized Game
-
-**Solving the system of equations**:
-
-From $EU_{\text{Rock}} = EU_{\text{Scissors}}$:
-$\sigma_{\text{paper}} = \frac{y}{x + y + z}$
-
-From $EU_{\text{Paper}} = EU_{\text{Scissors}}$:
-$\sigma_{\text{rock}} = \frac{z}{x + y + z}$
-
-From the constraint:
-$\sigma_{\text{scissors}} = \frac{x}{x + y + z}$
+- $EU_{\text{Rock}} = -x\sigma_{\text{paper}} + y\sigma_{\text{scissors}}$
+- $EU_{\text{Paper}} = x\sigma_{\text{rock}} - z\sigma_{\text{scissors}}$
+- $EU_{\text{Scissors}} = -y\sigma_{\text{rock}} + z\sigma_{\text{paper}}$
 
 **Mixed Strategy Equilibrium**:
-- Play Rock with probability $\frac{z}{x + y + z}$
-- Play Paper with probability $\frac{y}{x + y + z}$  
-- Play Scissors with probability $\frac{x}{x + y + z}$
+- Play Rock with probability $\frac{z}{x + y + z}$  (from $EU_{\text{Paper}} = EU_{\text{Scissors}}$)
+- Play Paper with probability $\frac{y}{x + y + z}$  (from $EU_{\text{Rock}} = EU_{\text{Scissors}}$)
+- Play Scissors with probability $\frac{x}{x + y + z}$  (from $EU_{\text{Rock}} = EU_{\text{Paper}}$)
 
 ---
 
 ## Counterintuitive Results
 
-**Surprising insight**: The probability of playing each strategy depends on the **other strategies' effectiveness**!
+The probability of playing each strategy depends on the **other strategies' effectiveness**, e.g.
 
 - Probability of Scissors = $\frac{x}{x + y + z}$ where $x$ is Paper's advantage over Rock
-- As Paper gets better at beating Rock ($x$ increases), players use Scissors **more often**
-- This happens because opponents anticipate the increased Paper usage
-
-**Intuition**: 
-1. Larger $x$ makes Paper more attractive against Rock
-2. Anticipating more Paper play, Scissors becomes more valuable
-3. Equilibrium shifts toward more Scissors usage to counteract Paper's strength
+- As Paper gets better at beating Rock ($x$ increases), players use Scissors **more often** because opponents anticipate the increased Paper usage
+- Numeric check (x=2, y=1, z=1): equilibrium weights = $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{2}\}$ — Paper's doubled effectiveness corresponds to doubling Scissors' weight.
 
 **Real-world application**: Character selection in fighting video games
-
----
-
-## Example: Specific Values
-
-Consider the game with $x = 2$, $y = 1$, $z = 1$:
-
-<table class="payoff-matrix">
-<tr>
-<th></th>
-<th>Rock</th>
-<th>Paper</th>
-<th>Scissors</th>
-</tr>
-<tr>
-<th>Rock</th>
-<td>0, 0</td>
-<td>-2, 2</td>
-<td>1, -1</td>
-</tr>
-<tr>
-<th>Paper</th>
-<td>2, -2</td>
-<td>0, 0</td>
-<td>-1, 1</td>
-</tr>
-<tr>
-<th>Scissors</th>
-<td>-1, 1</td>
-<td>1, -1</td>
-<td>0, 0</td>
-</tr>
-</table>
-
-**Equilibrium probabilities**:
-- Rock: $\frac{1}{4}$, Paper: $\frac{1}{4}$, Scissors: $\frac{1}{2}$
-
-Paper's doubled effectiveness against Rock leads to **doubling** the Scissors probability!
 
 ---
 
