@@ -91,9 +91,6 @@ style: |
 2. [Mixed Strategy Nash Equilibrium](#generalized-battle-of-sexes)
 3. [Comparative Statics](#comparative-statics)
 4. [Rock-Paper-Scissors Game](#rock-paper-scissors-game)
-5. [Indifference Principle](#indifference-principle)
-6. [Generalized Rock-Paper-Scissors](#generalized-rock-paper-scissors)
-7. [Mixed Strategies as Population Parameters](#mixed-strategies-as-population-parameters)
 
 ---
 
@@ -183,7 +180,37 @@ Setting Player 2 indifferent → $\sigma_{up}(r + p - s - t) = p - s$
 
 ---
 
-## Section 3.5 TBA
+## Support of Mixed Strategies
+
+A strategy is in the support if it's played with positive probability (> 0)
+
+**Golden rule**: All strategies in the support must yield equal expected utility in equilibrium.
+- If one strategy was better, the player would use it exclusively (probability = 1)
+- **Indifference principle**: Opponents make you indifferent among your support strategies
+
+**Important caveat**: Equal expected utility is necessary but not sufficient
+- Some strategies may yield equal expected utility but still not be played
+- Multiple equilibria can exist with different support structures
+
+---
+
+## Weak Dominance
+
+If one player mixes among all strategies, the opponent **cannot** use weakly dominated strategies in equilibrium.
+
+**Take-or-Share Game**:
+
+| | Take | Share |
+|---|---|---|
+| **Take** | 0, 0 | 8, 4 |
+| **Share** | 0, 8 | 4, 4 |
+
+**Analysis**: If Player 2 mixes between Take and Share, Player 1 must choose Take:
+- When P2 plays Take: P1 gets 0 from either Take or Share (tie)
+- When P2 plays Share: P1 gets 8 from Take vs 4 from Share (Take wins)
+- Take yields strictly higher expected utility → P1 never plays Share
+
+**Key insight**: Mixing converts weak dominance into **strict dominance**, eliminating strategies and simplifying equilibrium calculations
 
 ---
 
@@ -349,116 +376,12 @@ The probability of playing each strategy depends on the **other strategies' effe
 
 ## Mixed Strategies as Population Parameters
 
-**Alternative interpretation**: Mixed strategies represent **population distributions** rather than individual randomization
+**Alternative interpretation**: Mixed strategies represent **population distributions** rather than individual randomization:
 
-**Video game example**:
-- Players don't randomize between characters in each match
-- Instead, they specialize in one character (pure strategy)
-- The population contains different types of players
-
-**Population game**:
 - Individual players choose pure strategies (e.g., always Rock)
 - Random matchmaking pairs players from large population
-- Mixed strategy equilibrium tells us population distribution needed for individual indifference
-
----
-
-## Population Equilibrium Analysis
-
-**Setup**: Large population where:
-- Fraction $\frac{z}{x + y + z}$ specialize in Rock
-- Fraction $\frac{y}{x + y + z}$ specialize in Paper  
-- Fraction $\frac{x}{x + y + z}$ specialize in Scissors
-
-**Individual optimality**: A Rock specialist's expected payoff when randomly matched:
-
-$EU_{\text{Rock}} = 0 \cdot \frac{z}{x + y + z} + (-x) \cdot \frac{y}{x + y + z} + y \cdot \frac{x}{x + y + z} = 0$
+- Mixed strategy equilibrium tells us population distribution needed for individual indifference, e.g. a Rock specialist's expected payoff when randomly matched: $EU_{\text{Rock}} = 0 \cdot \frac{z}{x + y + z} + (-x) \cdot \frac{y}{x + y + z} + y \cdot \frac{x}{x + y + z} = 0$
 
 **Key insight**: All specialists earn the same expected payoff (zero), so no individual wants to switch specializations
 
 **Result**: Everyone plays pure strategies, yet the population achieves mixed strategy equilibrium proportions
-
----
-
-## Applications and Implications
-
-**Real-world examples**:
-1. **Online gaming**: Character selection in multiplayer games
-2. **Business strategy**: Product positioning in competitive markets
-3. **Evolution**: Species adaptation and survival strategies
-4. **Financial markets**: Trading strategy distributions
-
-**Why this matters**:
-- Explains diversity in competitive environments
-- No central coordination needed - emerges from individual optimization
-- Stable population distributions even with pure strategy players
-- Provides foundation for evolutionary game theory
-
-**Key takeaway**: Mixed strategy equilibria can represent **aggregate behavior** of purely strategic individuals
-
----
-
-## Computational Example
-
-**Given**: $x = 3$, $y = 2$, $z = 1$ in generalized Rock-Paper-Scissors
-
-**Step 1**: Calculate total $x + y + z = 6$
-
-**Step 2**: Find equilibrium probabilities
-- $\sigma_{\text{rock}} = \frac{z}{x + y + z} = \frac{1}{6}$
-- $\sigma_{\text{paper}} = \frac{y}{x + y + z} = \frac{2}{6} = \frac{1}{3}$
-- $\sigma_{\text{scissors}} = \frac{x}{x + y + z} = \frac{3}{6} = \frac{1}{2}$
-
-**Verification**: Each player's expected payoff equals zero
-- $EU_{\text{Rock}} = -3 \cdot \frac{1}{3} + 2 \cdot \frac{1}{2} = -1 + 1 = 0$ ✓
-
-**Interpretation**: When Scissors devastates Paper ($z=3$), half the population should specialize in Scissors
-
----
-
-## Strategy-Proofness and Robustness
-
-**Important properties** of mixed strategy equilibria in symmetric zero-sum games:
-
-1. **Individual rationality**: No player can improve by unilateral deviation
-2. **Population stability**: No subset of players can coordinate profitable changes  
-3. **Robustness to information**: Equilibrium maintained even with limited knowledge of opponent strategies
-4. **Scale invariance**: Results hold regardless of population size
-
-**Contrast with other games**: 
-- Coordination games: Multiple equilibria, focal points matter
-- Prisoner's dilemma: Unique equilibrium, but Pareto inefficient
-- Battle of the sexes: Coordination problems, communication valuable
-
-**Unique feature**: Symmetric zero-sum games have **conflict-free** mixed equilibria
-
----
-
-## Summary and Takeaways
-
-**Key insights from Chapter 3**:
-
-1. **Zero-sum symmetry principle**: Players earn zero expected payoff in equilibrium
-2. **Indifference principle**: Mixed strategies make opponents indifferent among pure strategies  
-3. **Counterintuitive effects**: Strategy probabilities depend on **other** strategies' payoffs
-4. **Population interpretation**: Mixed strategies as distributions of specialized players
-5. **Computational methods**: System of indifference equations plus probability constraints
-
-**Next steps**: 
-- Games with infinite strategy spaces (continuous choices)
-- Incomplete information and Bayesian games
-- Evolutionary stability and dynamics
-
-**Practice**: Apply these methods to analyze competitive scenarios in your field of interest
-
----
-
-## Takeaway Points
-
-1. **In symmetric, zero-sum games, each player's payoff in equilibrium must equal 0.**
-
-2. **Mixed strategies can be thought of as population parameters instead of single players randomizing over choices.**
-
-3. **The indifference principle: In mixed strategy equilibria, players must be indifferent among all strategies in their support.**
-
-4. **Counterintuitive result: The probability of playing a strategy often depends more on other strategies' payoffs than its own direct payoffs.**
