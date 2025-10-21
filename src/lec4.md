@@ -87,40 +87,34 @@ style: |
 
 ## The Road Ahead
 
-1. [Introduction to Infinite Strategy Spaces](#introduction)
-2. [Games Without Payoff Matrices](#simple-infinite-games)
-3. [Existence and Non-existence of Equilibria](#equilibrium-existence)
+1. [Infinite Strategy Spaces](#infinite-strategy-spaces)
+2. [Hotelling's Game](#hotellings-game)
+3. [Cournot Duopolistic Competition](#cournot-duopolistic-competition)
 4. [Second Price Auctions](#second-price-auctions)
-5. [The Median Voter Theorem](#median-voter-theorem)
-6. [Applications and Extensions](#applications)
 
 ---
 
-## Introduction to Infinite Strategy Spaces
+## Infinite Strategy Spaces
 
-**So far**: All games had **finite** number of pure strategies → could represent with matrices or game trees
-
-**Reality**: Many strategic situations involve **infinite** strategy choices:
+So far all games had **finite** number of pure strategies represented by matrices or game trees, but many strategic situations involve **infinite** strategy choices:
 - Firms choosing production levels (any real number ≥ 0)
 - Politicians choosing policy positions (continuum of possibilities)
 - Auction bidders choosing bid amounts (any positive value)
 - Pricing decisions (continuous price range)
 
-**Key insight**: Matrices and trees become **impractical** or **impossible** with infinite strategies
-
-**New challenge**: How to find equilibria without drawing payoff matrices?
+**New challenge**: Matrices and trees become impractical with infinite strategies. How to find equilibria without drawing payoff matrices?
 
 ---
 
 ## Games Without Payoff Matrices
 
-**Game definition remains the same**:
+**Game definition** remains the same:
 - Set of players
 - Strategy spaces (now possibly infinite)
 - Order of moves
 - Payoff functions
 
-**New solution method** for infinite games:
+**Solution method** for infinite games:
 1. Consider a single pure strategy from one player
 2. Find the other player's best responses to that strategy
 3. Check whether the original strategy is a best response to any of those best responses
@@ -133,9 +127,7 @@ style: |
 
 ## Example: Simple Infinite Game
 
-**Setup**: Players 1 and 2 simultaneously select whole numbers between 1 and 100. Each player's payoff = product of the two numbers.
-
-**Analysis using new method**:
+Players 1 and 2 simultaneously select whole numbers between 1 and 100. Each player's payoff = product of the two numbers
 
 **Step 1**: Suppose Player 2 chooses 1
 - Player 1's payoff = x × 1 = x → best response: choose 100
@@ -153,151 +145,122 @@ style: |
 
 ## Equilibrium Existence in Infinite Games
 
-**Nash's theorem**: Every **finite** game has at least one Nash equilibrium
-
-**Warning**: **Infinite** games may have **no equilibrium**!
+**Nash's theorem**: Every **finite** game has at least one Nash equilibrium. **Infinite** games may have no equilibrium!
 
 **Counter-example**: Players select any number > 0, payoff = product of numbers
 
-**Analysis**:
 - Suppose Player 1 chooses any value x > 0
 - Player 2's best response: choose something slightly larger than x
 - But then Player 1 wants to choose something even larger
-- **Result**: No equilibrium exists (infinite regress)
-
-**Key lesson**: Existence theorems don't apply to infinite games
+- Result: No equilibrium exists (infinite regress)
 
 ---
 
-## When Do Infinite Games Have Equilibria?
+## Hotelling's Game
 
-**Sufficient conditions** for equilibrium existence:
-1. **Bounded strategy spaces** (e.g., [0, 100] instead of all positive numbers)
-2. **Continuous payoff functions**
-3. **Compact strategy sets**
-4. **Quasi-concave payoff functions**
+**Harold Hotelling's 1929 model**: Two ice cream vendors on a beach
 
-**Example of bounded game**: Choose number in [1, 100]
-- Upper bound prevents infinite regress
-- Guarantees equilibrium exists
+- Beach stretches from position 0 to position 1
+- Customers evenly distributed along the beach
+- Two vendors sell identical ice cream for $2 per cone
+- Customers buy from nearest vendor (travel cost consideration)
+- Vendors simultaneously choose locations
 
-**Example without bounds**: Choose any positive number
-- No upper limit → players keep trying to choose larger numbers
-- No equilibrium possible
+**Strategy space**: Each vendor chooses position x ∈ [0, 1]
+
+**Key constraint**: Each vendor must serve exactly half the customers in equilibrium: EU₁ ≥ 1/2, EU₂ ≥ 1/2, and EU₁ + EU₂ = 1
 
 ---
 
-## Applications: Second Price Auctions
+## Equilibrium Analysis
 
-**Setup**: 
-- n bidders compete for single item
-- Each bidder has private valuation v_i for the item
-- Sealed bid auction: highest bidder wins, pays **second-highest bid**
+Why vendors can't be equidistant from center (1/2):
+- Suppose vendors at positions 1/4 and 3/4
+- Vendor at 1/4 could move to 1/2: keeps left customers + steals some right customers
+- This gives more than half the business → profitable deviation
 
-**Strategy space**: Each bidder chooses bid b_i ∈ [0, ∞)
+Why both vendors must choose the same location:
+- If both choose same position ≠ 1/2 (say both at 1/4)
+- One vendor could deviate to position 1/2 → get all customers on far side plus some customers near original position
+- Again a profitable deviation
 
-**Payoff function**: 
-- Winner: v_i - (second highest bid)  
-- Losers: 0
-
-**Key question**: What is the optimal bidding strategy?
-
----
-
-## Second Price Auction Analysis
-
-**Claim**: Bidding your true valuation (b_i = v_i) is a **dominant strategy**
-
-**Proof idea**:
-**Case 1**: Your bid wins
-- You pay second-highest bid (independent of your exact bid)
-- Bidding higher than v_i: same outcome, but risk paying more than value
-- Bidding lower than v_i: might lose auction you could have won profitably
-
-**Case 2**: Your bid loses  
-- You pay 0 regardless of exact bid amount
-- No incentive to deviate from truth-telling
-
-**Result**: Truth-telling is optimal regardless of others' strategies → **dominant strategy equilibrium**
+**Unique equilibrium**: Both vendors locate at position 1/2 (center)
+- Any deviation from center gives less than half the business
+- No profitable deviations exist
 
 ---
 
-## Applications: The Median Voter Theorem
+## Median Voter Theorem
 
-**Setup**: 
-- Two candidates choose policy positions on a line (e.g., left-right spectrum)
-- Voters distributed along this line with single-peaked preferences
+**Hotelling's game in politics**: Presidential candidates as "vendors," voters as "customers":
+- Two candidates choose policy positions on left-right spectrum
+- Voters distributed along this spectrum with single-peaked preferences
 - Each voter supports candidate closest to their ideal position
 - Candidates want to maximize vote share
 
-**Strategy space**: Choose any position x ∈ ℝ
-
 **Key insight**: Both candidates will converge to the **median voter's position**
 
-**Intuition**: 
-- If you're away from median, opponent can move slightly toward median
-- Opponent captures majority of voters between your positions
-- Only stable outcome: both at median position
+---
+
+## Cournot Duopolistic Competition
+
+**Antoine Augustin Cournot's model**: Firms compete over **quantities** produced
+
+- Two firms simultaneously choose production quantities: q₁, q₂ ≥ 0
+- Market price determined by demand: P = 900 - (q₁ + q₂)
+- Firm 1's production cost: $12 per unit
+- Firm 2's production cost: $24 per unit
+- Each firm maximizes profit
+
+**Strategy space**: Each firm chooses q ∈ [0, ∞)
 
 ---
 
-## Median Voter Theorem: Formal Analysis
+## Equilibrium Analysis
 
-**Assumptions**:
-1. Voters have single-peaked preferences
-2. Candidates care only about winning (not ideology)
-3. Voters vote for candidate closest to their ideal point
-4. Odd number of voters (to avoid ties)
+**Solution algorithm**:
+1. Profit functions: EU₁ = 888q₁ - q₁² - q₁q₂, EU₂ = 876q₂ - q₁q₂ - q₂²
+2. Best responses (partial derivatives): q₁ = 444 - q₂/2, q₂ = 438 - q₁/2  
+3. Solve system: Substitute to get q₂ = 438 - (444 - q₂/2)/2 = 216 + q₂/4
 
-**Equilibrium prediction**: Both candidates locate at median voter's ideal point
-
-**Real-world implications**:
-- Explains convergence to political center
-- Why extreme candidates often lose general elections
-- Strategic moderation in two-party systems
-
-**Extensions**: Result may fail with multiple dimensions, strategic voting, or candidate ideology
+**Equilibrium outcome**:
+- Firm 1: 300 units, Firm 2: 288 units, Market price: $312
+- Lower-cost firm (Firm 1) produces more and gains larger market share
 
 ---
 
-## Summary: Key Insights
+## Second Price Auctions
 
-**Main takeaways from infinite strategy games**:
+$n$ bidders compete for a single item
+- Each bidder $i$ has private valuation $v_i$ for the item
+- Sealed bid auction: highest bidder wins, pays **second-highest bid**
+- Strategy space: Each bidder chooses bid $b_i \in [0, \infty)$
 
-1. **Solution method**: Use best-response analysis instead of matrices
-2. **Existence**: Infinite games may have no equilibrium (unlike finite games)
-3. **Bounded sets**: Help guarantee equilibrium existence
-4. **Dominant strategies**: Still powerful solution concept (second-price auctions)
-5. **Convergence**: Competition can lead to clustering (median voter theorem)
+**Payoff function**: 
+$$\text{Payoff}_i = \begin{cases} 
+v_i - \text{(second highest bid)} & \text{if bidder } i \text{ wins} \\
+0 & \text{if bidder } i \text{ loses}
+\end{cases}$$
 
-**Applications beyond this lecture**:
-- Cournot competition (firms choosing quantities)
-- Bertrand competition (firms choosing prices)
-- Public goods provision
-- Arms races and conflict models
+**Example**: Albert bids $10, Barbara bids $13, Charlie bids $0.13, Fei bids $30; Fei wins but pays $13
 
----
-
-## Practice Problems
-
-**Problem 1**: Two firms choose production levels x₁, x₂ ∈ [0, 10]. Profit functions: π₁ = x₁(12 - x₁ - x₂), π₂ = x₂(12 - x₁ - x₂). Find Nash equilibrium.
-
-**Problem 2**: In a first-price auction (highest bidder wins and pays their bid), is truth-telling still optimal? Why or why not?
-
-**Problem 3**: Consider median voter theorem with three candidates instead of two. What happens to the equilibrium prediction?
-
-**Problem 4**: Players choose numbers in [0, 1]. Player 1's payoff = x₁ - x₁², Player 2's payoff = x₂ - 2x₁x₂. Find best responses and equilibrium.
+**Question**: What is the optimal bidding strategy?
 
 ---
 
-## Takeaway Points
+## Equilibrium Analysis
 
-1. **Infinite strategy spaces require new solution methods beyond payoff matrices.**
+**Theorem**: Bidding your true valuation ($b_i = v_i$) is a **dominant strategy**
 
-2. **Nash's existence theorem doesn't apply to infinite games - equilibria may not exist.**
+**Proof**: Consider any honest bidder $i$ with $b_i=v_i$
 
-3. **Bounded strategy sets and continuous payoffs help ensure equilibrium existence.**
+Case 1 - Your bid wins: 
+- You pay the second-highest bid
+- Increase bid? Still win and pay same amount
+- Decrease bid? Either still win and pay same amount or lose and get nothing
 
-4. **Truth-telling is dominant in second-price auctions but not in first-price auctions.**
+Case 2 - Your bid loses: 
+- Increase bid? Either still lose or win but pay more than valuation
+- Decrease bid? Still lose and receive nothing
 
-5. **The median voter theorem explains convergence to the center in two-candidate elections.**
+**Conclusion**: No profitable deviation → Truth-telling is optimal regardless of others' strategies

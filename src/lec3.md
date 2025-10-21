@@ -202,7 +202,7 @@ If one player mixes among all strategies, the opponent **cannot** use weakly dom
 
 | | Take | Share |
 |---|---|---|
-| **Take** | 0, 0 | 8, 4 |
+| **Take** | 0, 0 | 8, 0 |
 | **Share** | 0, 8 | 4, 4 |
 
 **Analysis**: If Player 2 mixes between Take and Share, Player 1 must choose Take:
@@ -368,7 +368,7 @@ The probability of playing each strategy depends on the **other strategies' effe
 
 - Probability of Scissors = $\frac{x}{x + y + z}$ where $x$ is Paper's advantage over Rock
 - As Paper gets better at beating Rock ($x$ increases), players use Scissors **more often** because opponents anticipate the increased Paper usage
-- Numeric check (x=2, y=1, z=1): equilibrium weights = $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{2}\}$ — Paper's doubled effectiveness corresponds to doubling Scissors' weight.
+- Numeric check (x=2, y=1, z=1): equilibrium weights = $\{\tfrac{1}{4},\tfrac{1}{4},\tfrac{1}{2}\}$ — Paper's doubled effectiveness leads to a 50% increase in Scissors' weight
 
 **Real-world application**: Character selection in fighting video games
 
@@ -382,6 +382,4 @@ The probability of playing each strategy depends on the **other strategies' effe
 - Random matchmaking pairs players from large population
 - Mixed strategy equilibrium tells us population distribution needed for individual indifference, e.g. a Rock specialist's expected payoff when randomly matched: $EU_{\text{Rock}} = 0 \cdot \frac{z}{x + y + z} + (-x) \cdot \frac{y}{x + y + z} + y \cdot \frac{x}{x + y + z} = 0$
 
-**Key insight**: All specialists earn the same expected payoff (zero), so no individual wants to switch specializations
-
-**Result**: Everyone plays pure strategies, yet the population achieves mixed strategy equilibrium proportions
+**Key insight**: All specialists earn the same expected payoff (zero), so no individual wants to switch specializations → Everyone plays pure strategies, yet the population achieves mixed strategy equilibrium proportions
