@@ -20,3 +20,4 @@ This course offers an introduction to game theory and its applications, building
 * [Lecture 3: Advanced Strategic Form Games](/pdf/lec3.pdf)
 * [Lecture 4: Games with Infinite Strategy Spaces](/pdf/lec4.pdf)
 * [Lecture 5: Expected Utility Theory](/pdf/lec5.pdf)
+* [Lecture 6: Repeated Games](/pdf/lec6.pdf)

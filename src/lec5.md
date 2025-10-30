@@ -470,3 +470,187 @@ If you prefer $1M > $0, then choose Lottery 1
    - Or leave one player unchanged
 
 **Bottom line**: Preserve preference ordering, maintain strategic equivalence
+
+---
+
+## Pareto Efficiency: Evaluating Outcomes
+
+**The problem with adding utilities**: Can't compare across players due to transformations
+
+**Example**: Battle of the Sexes - two versions that are identical games:
+
+**Version 1**:
+<table>
+<tr>
+<th></th>
+<th>Player 2: Ballet</th>
+<th>Player 2: Fight</th>
+</tr>
+<tr>
+<th>Player 1: Ballet</th>
+<td>1, 2</td>
+<td>0, 0</td>
+</tr>
+<tr>
+<th>Player 1: Fight</th>
+<td>0, 0</td>
+<td>100, 1</td>
+</tr>
+</table>
+
+**Version 2** (Player 1's payoffs ÷ 100):
+<table>
+<tr>
+<th></th>
+<th>Player 2: Ballet</th>
+<th>Player 2: Fight</th>
+</tr>
+<tr>
+<th>Player 1: Ballet</th>
+<td>0.01, 2</td>
+<td>0, 0</td>
+</tr>
+<tr>
+<th>Player 1: Fight</th>
+<td>0, 0</td>
+<td>1, 1</td>
+</tr>
+</table>
+
+**Sum of utilities**: Version 1: (Fight,Fight) = 101 vs (Ballet,Ballet) = 3
+Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
+
+**Same game, opposite conclusions about "efficiency"!**
+
+**Solution**: Pareto efficiency avoids interpersonal utility comparisons
+
+---
+
+## Pareto Efficiency in Classic Games
+
+**Stag Hunt Example**:
+
+<table>
+<tr>
+<th></th>
+<th>Player 2: Stag</th>
+<th>Player 2: Hare</th>
+</tr>
+<tr>
+<th>Player 1: Stag</th>
+<td>3, 3</td>
+<td>0, 1</td>
+</tr>
+<tr>
+<th>Player 1: Hare</th>
+<td>1, 0</td>
+<td>1, 1</td>
+</tr>
+</table>
+
+- **Pareto efficient**: (Stag, Stag) only
+- **Pareto inefficient**: All other outcomes
+- From (Hare, Hare), both players can improve by moving to (Stag, Stag)
+
+**Key insight**: Efficiency is about improving without hurting anyone
+
+---
+
+## Prisoner's Dilemma and Efficiency
+
+<table>
+<tr>
+<th></th>
+<th>Player 2: Cooperate</th>
+<th>Player 2: Defect</th>
+</tr>
+<tr>
+<th>Player 1: Cooperate</th>
+<td>3, 3</td>
+<td>1, 4</td>
+</tr>
+<tr>
+<th>Player 1: Defect</th>
+<td>4, 1</td>
+<td>2, 2</td>
+</tr>
+</table>
+
+**Surprising result**: The unique equilibrium (Defect, Defect) is the **only** inefficient outcome!
+
+**Pareto efficient outcomes**:
+- (Cooperate, Cooperate) - both can improve from equilibrium
+- (Cooperate, Defect) and (Defect, Cooperate) - can't help one without hurting the other
+
+**Key lesson**: Equilibrium doesn't guarantee efficiency
+
+---
+
+## Risk Preferences: The Million-Dollar Question
+
+**Thought experiment**: Choose between:
+- **Lottery 1**: 50% chance of $1,000,000, 50% chance of $0
+- **Lottery 2**: Guaranteed payment of $X
+
+**Question**: For what value of $X are you indifferent?
+
+**Expected value**: (0.5 × $1,000,000) + (0.5 × $0) = $500,000
+
+**Your answer reveals your risk preference**:
+- **Risk-averse**: $X < $500,000 (prefer certainty)
+- **Risk-neutral**: $X = $500,000 (mathematical calculation)  
+- **Risk-acceptant**: $X > $500,000 (prefer the gamble)
+
+---
+
+## Understanding Risk Profiles
+
+<table>
+<tr>
+<th>Risk Profile</th>
+<th>Indifference Point</th>
+<th>Core Logic</th>
+</tr>
+<tr>
+<td>Risk-Averse</td>
+<td>&lt; $500,000</td>
+<td>Diminishing value of money; safety preferred</td>
+</tr>
+<tr>
+<td>Risk-Neutral</td>
+<td>= $500,000</td>
+<td>Pure mathematical expected value</td>
+</tr>
+<tr>
+<td>Risk-Acceptant</td>
+<td>&gt; $500,000</td>
+<td>Thrill of gamble has positive value</td>
+</tr>
+</table>
+
+**Real-world examples**:
+- **Risk-averse**: Buying insurance (accept certain small loss to avoid catastrophic outcome)
+- **Risk-neutral**: Professional traders focusing on long-run averages
+- **Risk-acceptant**: Compulsive gambling (rare in high-stakes scenarios)
+
+**Dynamic preferences**: Risk tolerance can change with life circumstances (financial security, age, etc.)
+
+---
+
+## Risk and Utility Functions
+
+**Mathematical representation**: $U(x) = x^a$
+
+**Risk-neutral** ($a = 1$): $U(x) = x$ 
+- Linear relationship between money and utility
+- Each dollar provides same additional happiness
+
+**Risk-averse** ($0 < a < 1$): $U(x) = x^{0.5}$ (square root)
+- Diminishing marginal utility
+- Each additional dollar provides less happiness
+
+**Risk-acceptant** ($a > 1$): $U(x) = x^2$
+- Increasing marginal utility  
+- Each additional dollar provides more happiness
+
+**Critical point**: Must use utility values, not raw dollar amounts, in game analysis
