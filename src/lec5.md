@@ -87,40 +87,32 @@ style: |
 
 ## The Road Ahead
 
-1. [Why Numbers Matter in Game Theory](#why-numbers-matter-in-game-theory)
-2. [From Words to Utilities](#from-words-to-utilities)
-3. [The Axioms of Rational Choice](#the-axioms-of-rational-choice)
-4. [Completeness Axiom](#completeness-axiom)
-5. [Transitivity Axiom](#transitivity-axiom)
-6. [Rationality in Game Theory](#rationality-in-game-theory)
-7. [Utility Transformations](#utility-transformations)
+1. [From Preferences to Utilities](#why-numbers-matter-in-game-theory)
+2. [Axioms of Rational Choice](#axioms-of-rational-choice)
+3. [Utility Transformations](#utility-transformations)
 
 ---
 
 ## Why Numbers Matter in Game Theory
 
-**The Challenge**: Describing preferences with words is messy and hard to analyze
-
-Consider four possible outcomes:
+**Challenge**: Describing preferences with words is messy and hard to analyze. Consider four possible outcomes:
 - Outcome 3: "I love this"
 - Outcome 1: "I like this" 
 - Outcome 4: "meh"
 - Outcome 2: "This is worse than death"
 
-**Problems with descriptive language:**
+Problems with descriptive language:
 - Becomes an "absolute mess to memorize"
-- Impossible to manage with 8, 16, or infinite outcomes
-- No clear way to compare intensities
+- Impossible to manage with many or infinite outcomes
 - Cannot perform mathematical analysis
 
 **Solution**: Use numerical utilities to represent preferences cleanly and compactly
 
 ---
 
-## From Words to Utilities
+## From Preferences to Utilities
 
-**Utilities** are a numerical system to represent rank-ordered preferences
-- **Rule**: Larger numbers = better outcomes, smaller numbers = worse outcomes
+**Utilities** are a numerical system to represent rank-ordered preferences → Larger numbers = better outcomes, smaller numbers = worse outcomes
 
 <table>
 <tr>
@@ -145,21 +137,16 @@ Consider four possible outcomes:
 </tr>
 </table>
 
-**Key insight**: Numbers instantly capture rank ordering: 0 > -1 > -8 > -10
+**Insight**: Numbers instantly capture rank ordering: 0 > -1 > -8 > -10
 
 ---
 
-## The Golden Rule: Preferences Come First
+## Preferences Come First
 
-**Common misconception**: "No one thinks in numbers!"
+No one thinks in numbers. We don't care about utilities themselves, we care about what they represent
 
-**The reality**: We don't care about utilities themselves, we care about what they represent
+**The one-way street**: Preferences map to utilities, not the other way around
 
-<div class="identity-box">
-<strong>Golden Rule:</strong> Preferences map to utilities, not the other way around
-</div>
-
-**The one-way street**:
 1. You have preferences over outcomes (this comes first)
 2. We assign utility numbers to represent those preferences
 3. Higher utility numbers don't cause preferences - preferences cause higher utility numbers
@@ -168,9 +155,9 @@ Consider four possible outcomes:
 
 ---
 
-## The Axioms of Rational Choice
+## Axioms of Rational Choice
 
-To predict behavior in strategic situations, we need rules governing preferences. Expected Utility Theory rests on **four key axioms**:
+To predict behavior in strategic situations, we need rules governing preferences. Expected utility theory rests on **four key axioms**:
 
 1. **Completeness**: For any two outcomes, you can state a preference
 2. **Transitivity**: Preferences are logically consistent 
@@ -179,22 +166,18 @@ To predict behavior in strategic situations, we need rules governing preferences
 
 These axioms form the logical bedrock of game theory by ensuring preferences can be represented with utility numbers that allow mathematical analysis.
 
-**Next**: We'll examine each axiom in detail
-
 ---
 
 ## Completeness Axiom
 
-**Definition**: For any two outcomes X and Y, you must be able to state your preference
+For any two outcomes X and Y, you must be able to state your preference
 
 **Three possibilities**:
 1. Prefer X to Y
 2. Prefer Y to X  
 3. Be indifferent between X and Y
 
-**Example with three outcomes**: $1 million, $0, painful death
-
-Typical preference ordering:
+**Example:** $1 million, $0, and painful death. Typical preference ordering:
 - $1 million > $0
 - $0 > Painful death  
 - $1 million > Painful death
@@ -203,79 +186,25 @@ Typical preference ordering:
 
 ---
 
-## What Completeness Rules Out
-
-**Valid**: Indifference between outcomes
-- Can be modeled with equal utility numbers
-- Example: Indifferent between $0 and painful death
-
-**Invalid**: "I don't know" responses
-- Creates question marks in payoff matrices
-- Makes strategic analysis impossible
-
-**Example**: Prisoner's Dilemma with unknown payoff
-
-<table>
-<tr>
-<th></th>
-<th>Player 2: Cooperate</th>
-<th>Player 2: Defect</th>
-</tr>
-<tr>
-<th>Player 1: Cooperate</th>
-<td>3, 3</td>
-<td>0, 5</td>
-</tr>
-<tr>
-<th>Player 1: Defect</th>
-<td>5, 0</td>
-<td>?, 1</td>
-</tr>
-</table>
-
-Cannot predict Player 1's behavior → analysis breaks down
-
----
-
 ## Transitivity Axiom
 
-**Definition**: If X is preferred to Y and Y is preferred to Z, then X must be preferred to Z
+If X is preferred to Y and Y is preferred to Z, then X must be preferred to Z → Mathematical analogy: If A > B and B > C, then A > C
 
-**Mathematical analogy**: If A > B and B > C, then A > C
-
-**Example**: Million dollars vs. dying
+**Example**: Million dollars vs. $0 vs. dying
 1. Prefer $1M to $0 (X > Y)
 2. Prefer $0 to dying (Y > Z)
-3. **Must** prefer $1M to dying (X > Z)
+3. Must prefer $1M to dying (X > Z)
 
-**Works with indifference too**:
+Transitivity works with indifference too:
 - If indifferent between $1M and $0, and between $0 and dying
 - Then must be indifferent between $1M and dying
 - Transitivity: If A = B and B = C, then A = C
 
----
-
-## Why Transitivity Matters
-
-**Problem transitivity solves**: Eliminates preference cycles
-
-**Illogical preference cycle**:
-- Prefer $1M > $0
-- Prefer $0 > dying  
-- But prefer dying > $1M
-
-**Consequences of cycles**:
-- No "best" option exists
-- Cannot assign consistent utility numbers
-- Mathematical analysis becomes impossible
-
-**Example**: If dying has utility 1 and $1M has utility 3, then saying "dying > $1M" implies 1 > 3, which is impossible
-
-**Bottom line**: Transitivity is essential for representing preferences with numbers
+**Key point**: Transitivity eliminates illogical preference cycles
 
 ---
 
-## Rationality in Game Theory
+## Rationality
 
 **Everyday rationality**: Making sensible, logical choices
 
@@ -300,72 +229,42 @@ Cannot predict Player 1's behavior → analysis breaks down
 </tr>
 </table>
 
-**Key insight**: A preference for dying over $1 million can be **rational** (if complete and transitive) even if not **sensible**
-
----
-
-## The Power of Rational Preferences
-
-**Complex preference maps** → **Simple ordered lists**
-
-With 6 outcomes, preference arrows create a tangled mess:
-
-**Complex web of preferences** transforms into **clean ranking**:
-1. Autographed Game Theory textbook
-2. $1 million
-3. $0  
-4. Painful death
-5. Brussels sprouts
-6. $7 cupcake
-
-**Benefits**:
-- Easy to analyze and compare
-- Can assign utility numbers
-- Enables mathematical modeling
-- Foundation for all game theory analysis
+**Insight**: A preference for dying over $1 million can be **rational** (if complete and transitive) even if not **sensible**
 
 ---
 
 ## Dealing with Uncertainty: Lotteries
 
-**Lottery**: A probability distribution over outcomes
-
-**Why lotteries matter**:
+**Lottery**: A probability distribution over outcomes. Why it matters:
 - Mixed strategies create uncertainty for opponents
 - Many real-world situations involve risk
 - Need to compare certain outcomes with uncertain ones
 
-**Example choice**:
-- **Option A**: Get $0 for certain
-- **Option B**: 50% chance of $1M, 50% chance of death
+**Example**:
+- Option A: Get $0 for certain
+- Option B: 50% chance of $1M, 50% chance of death
 
-**Key question**: How do we compare these options rationally?
-
-**Answer**: Expected utility theory provides the framework for consistent choice under uncertainty
+**Key question**: How do we compare these options rationally? → Expected utility theory provides the framework for consistent choice under uncertainty
 
 ---
 
 ## Independence Axiom
 
-**Principle**: When comparing lotteries, identical components should not affect your choice
-
-**Formal statement**: If you prefer X to Y, then you should prefer:
+When comparing lotteries, identical components should not affect your choice → If you prefer X to Y, then you should prefer:
 - [X with probability p, Z with probability (1-p)] to
 - [Y with probability p, Z with probability (1-p)]
 
 **Example**:
-- **Lottery 1**: 50% chance $1M, 50% chance death
-- **Lottery 2**: 50% chance $0, 50% chance death
+- Lottery 1: 50% chance $1M, 50% chance death
+- Lottery 2: 50% chance $0, 50% chance death
 
-**Analysis**: The 50% chance of death is common to both → ignore it
-Focus on the difference: Do you prefer $1M or $0?
-If you prefer $1M > $0, then choose Lottery 1
+**Analysis**: The 50% chance of death is common to both → ignore it and focus on the difference: Do you prefer $1M or $0? If you prefer $1M, then choose Lottery 1
 
-**Application**: Enables consistent decision-making under uncertainty
+**Key point**: Independence enables consistent decision-making under uncertainty
 
 ---
 
-## The Allais Paradox
+## Allais Paradox
 
 **Choice 1**: A vs. B
 - **A**: 11% chance of $1M, 89% chance of $0
@@ -375,7 +274,7 @@ If you prefer $1M > $0, then choose Lottery 1
 - **C**: 100% chance of $1M
 - **D**: 10% chance of $5M, 89% chance of $1M, 1% chance of $0
 
-**The paradox**: Many people choose B and C, violating independence
+**Paradox**: Many people choose B and C, violating independence
 - Both choices reduce to the same core decision
 - Prefer certain $1M when certainty available (C over D)
 - Prefer risky $5M gamble when risk unavoidable (B over A)
@@ -386,28 +285,24 @@ If you prefer $1M > $0, then choose Lottery 1
 
 ## Continuity Axiom
 
-**Principle**: For any three ranked outcomes (best, middle, worst), there exists a probability that makes you indifferent between the middle outcome for certain and a lottery on the best and worst
+For any three ranked outcomes (best, middle, worst), there exists a probability that makes you indifferent between the middle outcome for certain and a lottery on the best and worst
 
 **Example**: 
 - Best: $1 million
 - Middle: $0  
 - Worst: Painful death
 
-**Question**: What probability p makes you indifferent between:
+What probability p makes you indifferent between:
 - Getting $0 for certain
 - p chance of $1M, (1-p) chance of death
 
-**Key insight**: As long as such a probability exists (even if p = 0.9999999), your preferences satisfy continuity
-
-**What continuity rules out**: Lexicographic preferences with infinite jumps
+**Key point**: As long as such a probability exists (even if p = 0.9999999), your preferences satisfy continuity → continuity rules out lexicographic preferences with infinite jumps
 
 ---
 
 ## Utility Transformations
 
-**Key insight**: Utility numbers are representations, not absolute values
-
-**Positive Affine Transformation**: $u' = au + b$ where $a > 0$
+Utility numbers are representations, not absolute values. Consider **positive affine transformation**: $u' = au + b$ where $a > 0$
 
 **Example**: Original Stag Hunt game
 
@@ -429,7 +324,7 @@ If you prefer $1M > $0, then choose Lottery 1
 </tr>
 </table>
 
-**Transformed game** (multiply Player 1's payoffs by 2):
+Transformed game (multiply Player 1's payoffs by 2):
 
 <table>
 <tr>
@@ -449,7 +344,7 @@ If you prefer $1M > $0, then choose Lottery 1
 </tr>
 </table>
 
-**Same strategic properties**: Identical equilibria because preference ordering preserved
+**Key point**: Identical equilibria because preference ordering preserved
 
 ---
 
@@ -457,14 +352,13 @@ If you prefer $1M > $0, then choose Lottery 1
 
 **Three fundamental rules**:
 
-1. **Use positive affine transformations only**: $u' = au + b$ with $a > 0$
+1. Use positive affine transformations only: $u' = au + b$ with $a > 0$
    - Never use $a ≤ 0$ (reverses or eliminates preferences)
    - Avoid squaring, cubing, or other nonlinear transformations
 
-2. **Apply consistently within player**: Same $a$ and $b$ for all payoffs of one player
-   - Cannot pick and choose which payoffs to transform
+2. Apply consistently within player: Same $a$ and $b$ for all payoffs of one player
 
-3. **Players can be transformed independently**: 
+3. Players can be transformed independently: 
    - Player 1: $a = 2, b = 0$
    - Player 2: $a = 1, b = -1$ 
    - Or leave one player unchanged
@@ -473,13 +367,12 @@ If you prefer $1M > $0, then choose Lottery 1
 
 ---
 
-## Pareto Efficiency: Evaluating Outcomes
+## Pareto Efficiency
 
-**The problem with adding utilities**: Can't compare across players due to transformations
+An outcome is Pareto efficient if there is no other outcome that makes at least one player better off without making any other player worse off
 
-**Example**: Battle of the Sexes - two versions that are identical games:
+**Example**: Battle of the Sexes
 
-**Version 1**:
 <table>
 <tr>
 <th></th>
@@ -498,7 +391,7 @@ If you prefer $1M > $0, then choose Lottery 1
 </tr>
 </table>
 
-**Version 2** (Player 1's payoffs ÷ 100):
+Player 1's payoffs ÷ 100:
 <table>
 <tr>
 <th></th>
@@ -517,18 +410,11 @@ If you prefer $1M > $0, then choose Lottery 1
 </tr>
 </table>
 
-**Sum of utilities**: Version 1: (Fight,Fight) = 101 vs (Ballet,Ballet) = 3
-Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
-
-**Same game, opposite conclusions about "efficiency"!**
-
-**Solution**: Pareto efficiency avoids interpersonal utility comparisons
+**Key point**: Sum of interpersonal utilities gives opposite conclusions, yet both are the same game!
 
 ---
 
-## Pareto Efficiency in Classic Games
-
-**Stag Hunt Example**:
+## Pareto Efficiency in Stag Hunt
 
 <table>
 <tr>
@@ -552,11 +438,9 @@ Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
 - **Pareto inefficient**: All other outcomes
 - From (Hare, Hare), both players can improve by moving to (Stag, Stag)
 
-**Key insight**: Efficiency is about improving without hurting anyone
-
 ---
 
-## Prisoner's Dilemma and Efficiency
+## Pareto Efficiency in Prisoner's Dilemma
 
 <table>
 <tr>
@@ -576,9 +460,9 @@ Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
 </tr>
 </table>
 
-**Surprising result**: The unique equilibrium (Defect, Defect) is the **only** inefficient outcome!
+The unique equilibrium (Defect, Defect) is the only inefficient outcome!
 
-**Pareto efficient outcomes**:
+Pareto efficient outcomes:
 - (Cooperate, Cooperate) - both can improve from equilibrium
 - (Cooperate, Defect) and (Defect, Cooperate) - can't help one without hurting the other
 
@@ -586,58 +470,22 @@ Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
 
 ---
 
-## Risk Preferences: The Million-Dollar Question
+## Risk Preferences
 
-**Thought experiment**: Choose between:
-- **Lottery 1**: 50% chance of $1,000,000, 50% chance of $0
-- **Lottery 2**: Guaranteed payment of $X
+Choose between:
+- Lottery 1: 50% chance of $1,000,000, 50% chance of $0
+- Lottery 2: Guaranteed payment of $X
 
-**Question**: For what value of $X are you indifferent?
+Expected value of Lottery 1: (0.5 × $1,000,000) + (0.5 × $0) = $500,000
 
-**Expected value**: (0.5 × $1,000,000) + (0.5 × $0) = $500,000
-
-**Your answer reveals your risk preference**:
+**Question**: For what value of $X are you indifferent? Your answer reveals your risk preference:
 - **Risk-averse**: $X < $500,000 (prefer certainty)
-- **Risk-neutral**: $X = $500,000 (mathematical calculation)  
+- **Risk-neutral**: $X = $500,000
 - **Risk-acceptant**: $X > $500,000 (prefer the gamble)
 
 ---
 
-## Understanding Risk Profiles
-
-<table>
-<tr>
-<th>Risk Profile</th>
-<th>Indifference Point</th>
-<th>Core Logic</th>
-</tr>
-<tr>
-<td>Risk-Averse</td>
-<td>&lt; $500,000</td>
-<td>Diminishing value of money; safety preferred</td>
-</tr>
-<tr>
-<td>Risk-Neutral</td>
-<td>= $500,000</td>
-<td>Pure mathematical expected value</td>
-</tr>
-<tr>
-<td>Risk-Acceptant</td>
-<td>&gt; $500,000</td>
-<td>Thrill of gamble has positive value</td>
-</tr>
-</table>
-
-**Real-world examples**:
-- **Risk-averse**: Buying insurance (accept certain small loss to avoid catastrophic outcome)
-- **Risk-neutral**: Professional traders focusing on long-run averages
-- **Risk-acceptant**: Compulsive gambling (rare in high-stakes scenarios)
-
-**Dynamic preferences**: Risk tolerance can change with life circumstances (financial security, age, etc.)
-
----
-
-## Risk and Utility Functions
+## Utility Functions
 
 **Mathematical representation**: $U(x) = x^a$
 
@@ -652,5 +500,3 @@ Version 2: (Ballet,Ballet) = 2.01 vs (Fight,Fight) = 2
 **Risk-acceptant** ($a > 1$): $U(x) = x^2$
 - Increasing marginal utility  
 - Each additional dollar provides more happiness
-
-**Critical point**: Must use utility values, not raw dollar amounts, in game analysis
