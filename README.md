@@ -21,3 +21,4 @@ This course offers an introduction to game theory and its applications, building
 * [Lecture 4: Games with Infinite Strategy Spaces](/pdf/lec4.pdf)
 * [Lecture 5: Expected Utility Theory](/pdf/lec5.pdf)
 * [Lecture 6: Repeated Games](/pdf/lec6.pdf)
+* [Lecture 7: Bayesian Nash Equilibrium](/pdf/lec7.pdf)

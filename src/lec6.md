@@ -89,11 +89,9 @@ style: |
 
 1. [Finite Repeated Games](#finite-repeated-games)
 2. [Infinite Repeated Games](#a-glimpse-of-hope)
-3. [One-Shot Deviation Principle](#one-shot-deviation-principle)
-4. [Grim Trigger Strategy](#grim-trigger-strategy)
-5. [Tit-for-Tat and Credibility](#tit-for-tat)
-6. [Folk Theorem: The Explosion of Equilibria](#folk-theorem)
-7. [The Prediction Problem](#prediction-problem)
+3. [Grim Trigger Strategy](#grim-trigger-strategy)
+4. [Tit-for-Tat Strategy](#tit-for-tat-strategy)
+5. [Folk Theorem](#folk-theorem)
 
 ---
 
