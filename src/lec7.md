@@ -140,128 +140,84 @@ Uncertainty about another player's payoffs, preferences, or "type"
 
 ---
 
-## Building Blocks
+## Elements of A Game
 
-**From Complete to Incomplete Information**:
+Complete information: Players, actions, payoffs
 
-| Complete Information | Incomplete Information |
-|---------------------|------------------------|
-| Players | Players |
-| Actions | Actions |
-| Payoffs | Payoffs |
-|  | **Player Types** |
-|  | **Beliefs** |
+Incomplete information: Two additional elements
 
-**The new elements**:
-- **Types**: Different versions of a player (e.g., left-accurate vs. right-accurate striker)
-- **Beliefs**: Probabilities assigned to opponent types (e.g., 50% chance of left-accurate)
+- **Player types**: Different variations of a player with private information about payoffs or capabilities
+    - Each player knows their own type but opponents do not
+    - Example: Striker knows if they're more accurate kicking left or right
+
+- **Player beliefs**: Probabilities assigned to opponent types
+    - Common prior assumption: All players know each other's beliefs at all levels
+    - Example: Goalie believes 50% chance striker is left-accurate
 
 ---
 
-## Player Types
+## Bayesian Nash Equilibrium (BNE)
 
-**Definition**: Different variations of a player with private information about payoffs or capabilities
+A set of strategies—one for each type of player—such that no type has incentive to deviate, given beliefs about types and what other types are doing:
 
-**Key properties**:
-- A player always knows their own type
-- Opponents do not know the player's type
-- Types capture informational asymmetry
+- Focus on types: Check for deviations by each type, not just each player
+- Contingency plan: One strategy for each possible type
+- Beliefs drive rationality: Player's optimal choice pivots on beliefs
 
-**Example**: Soccer striker
-- Type A: More accurate kicking left (private information)
-- Type B: More accurate kicking right (private information)
-- Goalie must form beliefs about which type they face
+**BNE**: Solution concept for simultaneous-move games with incomplete information
 
 ---
 
-## Beliefs
+## One-Sided Incomplete Information
 
-**Definition**: Probabilities a player assigns to possible types of opponents
+Player 1 has two types with probabilities $p$ and $1-p$; Player 2 is uncertain which type they face
 
-**Purpose**: Provide a framework for rational decision-making under uncertainty
-
-**Example**: Goalie's beliefs about striker
-- 50% belief: Striker is more accurate to left
-- 50% belief: Striker is more accurate to right
-
-**Common Prior Assumption**: All players know each other's beliefs, and know that they know, infinitely
-
----
-
-## Bayesian Nash Equilibrium
-
-**Definition**: A set of strategies—one for each type of player—such that no type has incentive to deviate, given beliefs about types and what other types are doing
-
-**Three key upgrades from Nash Equilibrium**:
-1. **Focus on types**: Check for deviations by each type, not just each player
-2. **Strategies per type**: One strategy for each possible type
-3. **Role of beliefs**: Use beliefs to calculate expected payoffs
-
-**Solution concept for**: Simultaneous-move games with incomplete information
-
----
-
-## BNE Example: One-Sided Incomplete Information
-
-**Setup**: Player 1 has two types with probabilities $p$ and $1-p$. Player 2 is uncertain which type they face.
-
-**Two possible games**:
+Type A Player 1:
 
 <table>
 <tr><th>Type A (prob = p)</th><th>Left</th><th>Right</th></tr>
-<tr><th>Up</th><td>3, 3</td><td>1, 0</td></tr>
+<tr><th>Up</th><td>3, 4</td><td>1, 0</td></tr>
 <tr><th>Down</th><td>4, 3</td><td>2, 0</td></tr>
 </table>
+
+Type B Player 1:
 
 <table>
 <tr><th>Type B (prob = 1-p)</th><th>Left</th><th>Right</th></tr>
 <tr><th>Up</th><td>6, 2</td><td>0, 4</td></tr>
-<tr><th>Down</th><td>5, 2</td><td>-1, 4</td></tr>
+<tr><th>Down</th><td>5, 1</td><td>-1, 4</td></tr>
 </table>
 
 ---
 
 ## Finding Player 1's Strategy
 
-**Type A analysis**: Compare Up vs. Down
+Type A analysis: Compare Up vs. Down
 - If Player 2 plays Left: Down (4) > Up (3)
 - If Player 2 plays Right: Down (2) > Up (1)
-- **Result**: Down strictly dominates Up for Type A
+- Down strictly dominates Up for Type A
 
-**Type B analysis**: Compare Up vs. Down
+Type B analysis: Compare Up vs. Down
 - If Player 2 plays Left: Up (6) > Down (5)
 - If Player 2 plays Right: Up (0) > Down (-1)
-- **Result**: Up strictly dominates Down for Type B
+- Up strictly dominates Down for Type B
 
-**Player 1's equilibrium strategy**: Type A plays Down; Type B plays Up
+Player 1's equilibrium strategy: Type A plays Down; Type B plays Up
 
 ---
 
 ## Finding Player 2's Strategy
 
-**Player 2's dilemma**: Cannot use simple dominance because optimal action depends on Player 1's type
+Cannot use simple dominance because optimal action depends on Player 1's type
 
-**Expected utility approach**:
-- Expected utility of Left: $3p + 2(1-p) = p + 2$
-- Expected utility of Right: $0p + 4(1-p) = 4 - 4p$
+Expected utility:
+- Left: $3p + 2(1-p) = p + 2$
+- Right: $0p + 4(1-p) = 4 - 4p$
 
-**Player 2's best response**:
+Player 2's best response:
 - Play Left if $p + 2 > 4 - 4p$ → $p > \frac{2}{5}$
 - Play Right if $p < \frac{2}{5}$
 - Indifferent if $p = \frac{2}{5}$
-
----
-
-## Complete BNE Solution
-
-**The equilibrium strategy profile**:
-- Player 1 (Type A): Down
-- Player 1 (Type B): Up
-- Player 2: Left if $p > \frac{2}{5}$; Right if $p < \frac{2}{5}$
-
-**Two key insights**:
-1. **BNE is a contingency plan**: Specifies action for every possible type
-2. **Beliefs drive rationality**: Player 2's optimal choice pivots on probability $p$
 
 **Note**: From Player 2's perspective, Player 1 appears to be "mixing" even though each type plays a pure strategy
 
